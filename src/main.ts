@@ -22,7 +22,18 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <option value="12">12月</option>
   </select>
   <select>
-    <option>1日</option>
+    <option value="1">1日</option>
+    <option value="2">2日</option>
+    <option value="3">3日</option>
+    <option value="4">4日</option>
+    <option value="5">5日</option>
+    <option value="6">6日</option>
+    <option value="7">7日</option>
+    <option value="8">8日</option>
+    <option value="9">9日</option>
+    <option value="10">10日</option>
+    <option value="11">11日</option>
+    <option value="12">12日</option>
   </select>
 </div>
 `
