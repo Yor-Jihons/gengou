@@ -42,6 +42,17 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <option value="18">18日</option>
     <option value="19">19日</option>
     <option value="20">20日</option>
+    <option value="21">21日</option>
+    <option value="22">22日</option>
+    <option value="23">23日</option>
+    <option value="24">24日</option>
+    <option value="25">25日</option>
+    <option value="26">26日</option>
+    <option value="27">27日</option>
+    <option value="28">28日</option>
+    <option value="29">29日</option>
+    <option value="30">20日</option>
+
   </select>
 </div>
 `
