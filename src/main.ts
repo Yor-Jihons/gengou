@@ -6,6 +6,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <select>
     <option value="1989">1989年</option>
     <option value="1990">1990年</option>
+    <option value="1991">1991年</option>
+    <option value="1992">1992年</option>
+    <option value="1993">1993年</option>
+    <option value="1994">1994年</option>
+    <option value="1995">1995年</option>
   </select>
   <select>
     <option value="1">1月</option>
@@ -34,6 +39,25 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <option value="10">10日</option>
     <option value="11">11日</option>
     <option value="12">12日</option>
+    <option value="13">13日</option>
+    <option value="14">14日</option>
+    <option value="15">15日</option>
+    <option value="16">16日</option>
+    <option value="17">17日</option>
+    <option value="18">18日</option>
+    <option value="19">19日</option>
+    <option value="20">20日</option>
+    <option value="21">21日</option>
+    <option value="22">22日</option>
+    <option value="23">23日</option>
+    <option value="24">24日</option>
+    <option value="25">25日</option>
+    <option value="26">26日</option>
+    <option value="27">27日</option>
+    <option value="28">28日</option>
+    <option value="29">29日</option>
+    <option value="30">30日</option>
+    <option value="31">30日</option>
   </select>
 </div>
 `
