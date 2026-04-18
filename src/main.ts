@@ -51,8 +51,8 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     <option value="27">27日</option>
     <option value="28">28日</option>
     <option value="29">29日</option>
-    <option value="30">20日</option>
-
+    <option value="30">30日</option>
+    <option value="31">30日</option>
   </select>
 </div>
 `
