@@ -6,6 +6,11 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <select>
     <option value="1989">1989年</option>
     <option value="1990">1990年</option>
+    <option value="1991">1991年</option>
+    <option value="1992">1992年</option>
+    <option value="1993">1993年</option>
+    <option value="1994">1994年</option>
+    <option value="1995">1995年</option>
   </select>
   <select>
     <option value="1">1月</option>
