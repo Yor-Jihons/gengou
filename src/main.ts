@@ -4,7 +4,7 @@ import './style.css'
 const minYear: number = 1912;
 const maxCountYears: number = 601;
 
-export function CreateYearsOptionsTexts(){
+function CreateYearsOptionsTexts(){
   let text = "";
 
   const selectedYear = (new Date()).getFullYear();
