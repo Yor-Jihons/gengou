@@ -1,16 +1,25 @@
 import './style.css'
-import { setupCounter } from './counter.ts'
+
+
+const minYear: number = 1912;
+const maxCountYears: number = 601;
+
+export default function CreateYearsOptionsTexts(){
+  let text = "";
+
+  const selectedYear = (new Date()).getFullYear();
+
+  for( let i = 0; i < maxCountYears; i++ ){
+    const y = i + minYear;
+    text += '<option value="' + y  + '"' + (y === selectedYear ? "selected" : '') + ' >' +  y + "年</option>";
+  }
+  return text;
+}
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 <div class="flexbox1">
   <select>
-    <option value="1989">1989年</option>
-    <option value="1990">1990年</option>
-    <option value="1991">1991年</option>
-    <option value="1992">1992年</option>
-    <option value="1993">1993年</option>
-    <option value="1994">1994年</option>
-    <option value="1995">1995年</option>
+    ${CreateYearsOptionsTexts()}
   </select>
   <select>
     <option value="1">1月</option>
@@ -61,5 +70,3 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   </select>
 </div>
 `
-
-setupCounter(document.querySelector<HTMLButtonElement>('#counter')!)
