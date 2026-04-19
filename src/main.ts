@@ -7,9 +7,11 @@ const maxCountYears: number = 601;
 export default function CreateYearsOptionsTexts(){
   let text = "";
 
+  const selectedYear = (new Date()).getFullYear();
+
   for( let i = 0; i < maxCountYears; i++ ){
     const y = i + minYear;
-    text += '<option value="' + y  + '">' +  y + "年</option>";
+    text += '<option value="' + y  + '"' + (y === selectedYear ? "selected" : '') + ' >' +  y + "年</option>";
   }
   return text;
 }
