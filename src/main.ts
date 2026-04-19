@@ -49,3 +49,4 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 `;
 
 document.getElementById("yearSelect")?.addEventListener( "change", select_onchange );
+select_onchange();
