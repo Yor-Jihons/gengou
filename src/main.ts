@@ -45,17 +45,35 @@ export function CreateDaysOptionsTexts(){
   return text;
 }
 
+function select_onchange(){
+  const yearSelect = document.getElementById("yearSelect") as HTMLSelectElement;
+  const monthSelect = document.getElementById("monthSelect") as HTMLSelectElement;
+  const dateSelect = document.getElementById("dateSelect") as HTMLSelectElement;
+
+  const y = Number( yearSelect.value );
+  const m = Number( monthSelect.value );
+  const d = Number( dateSelect.value );
+
+  const resultArea = document.getElementById("result_area");
+  if( resultArea === undefined || resultArea === null ) return;
+  resultArea.innerHTML = "OK";
+}
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 <div class="flexbox1">
-  <select>
+  <select id="yearSelect">
     ${CreateYearsOptionsTexts()}
   </select>
-  <select>
+  <select id="monthSelect">
     ${CreateMonthsOptionsTexts()}
   </select>
-  <select>
+  <select id="dateSelect">
     ${CreateDaysOptionsTexts()}
   </select>
 </div>
-<div id="result_area">OK</div>
+<div id="result_area"></div>
 `;
+
+document.getElementById("yearSelect")?.addEventListener( "change", select_onchange );
+document.getElementById("monthSelect")?.addEventListener( "change", select_onchange );
+document.getElementById("dateSelect")?.addEventListener( "change", select_onchange );
