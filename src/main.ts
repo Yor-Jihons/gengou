@@ -45,6 +45,19 @@ export function CreateDaysOptionsTexts(){
   return text;
 }
 
+function convertToGengo( year: number ){
+    // 1月1日時点のDateオブジェクトを作成
+    const d = new Date(year, 0, 1);
+
+    // 和暦（japaneseカレンダー）を指定してフォーマット
+    const formatter = new Intl.DateTimeFormat('ja-JP-u-ca-japanese', {
+        era: 'long',
+        year: 'numeric'
+    });
+
+    return formatter.format(d); // 例: "令和6年"
+}
+
 function select_onchange(){
   const yearSelect = document.getElementById("yearSelect") as HTMLSelectElement;
   const monthSelect = document.getElementById("monthSelect") as HTMLSelectElement;
@@ -56,7 +69,7 @@ function select_onchange(){
 
   const resultArea = document.getElementById("result_area");
   if( resultArea === undefined || resultArea === null ) return;
-  resultArea.innerHTML = "OK";
+  resultArea.innerHTML = convertToGengo( y );
 }
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
