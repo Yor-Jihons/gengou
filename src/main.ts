@@ -4,7 +4,7 @@ import './style.css'
 const minYear: number = 1912;
 const maxCountYears: number = 601;
 
-export default function CreateYearsOptionsTexts(){
+export function CreateYearsOptionsTexts(){
   let text = "";
 
   const selectedYear = (new Date()).getFullYear();
@@ -16,24 +16,25 @@ export default function CreateYearsOptionsTexts(){
   return text;
 }
 
+export function CreateMonthsOptionsTexts(){
+  let text = "";
+
+  const selectedMonth = (new Date()).getMonth() + 1;
+
+  for( let i = 0; i < 12; i++ ){
+    const m = i + 1;
+    text += '<option value="' + m  + '"' + (m === selectedMonth ? "selected" : '') + ' >' +  m + "月</option>";
+  }
+  return text;
+}
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
 <div class="flexbox1">
   <select>
     ${CreateYearsOptionsTexts()}
   </select>
   <select>
-    <option value="1">1月</option>
-    <option value="2">2月</option>
-    <option value="3">3月</option>
-    <option value="4">4月</option>
-    <option value="5">5月</option>
-    <option value="6">6月</option>
-    <option value="7">7月</option>
-    <option value="8">8月</option>
-    <option value="9">9月</option>
-    <option value="10">10月</option>
-    <option value="11">11月</option>
-    <option value="12">12月</option>
+    ${CreateMonthsOptionsTexts()}
   </select>
   <select>
     <option value="1">1日</option>
