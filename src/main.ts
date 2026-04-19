@@ -57,4 +57,5 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
     ${CreateDaysOptionsTexts()}
   </select>
 </div>
-`
+<div id="result_area">OK</div>
+`;
