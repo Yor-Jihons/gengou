@@ -1,52 +1,60 @@
 import './style.css'
 
+const minYear: number = 1868;
+const maxYear: number = (new Date()).getFullYear() + 10;
 
-const minYear: number = 1912;
-const maxCountYears: number = 601;
+function createYearOptions() {
+  let options = "";
+  const currentYear = (new Date()).getFullYear();
 
-function CreateYearsOptionsTexts(){
-  let text = "";
-
-  const selectedYear = (new Date()).getFullYear();
-
-  for( let i = 0; i < maxCountYears; i++ ){
-    const y = i + minYear;
-    text += '<option value="' + y  + '"' + (y === selectedYear ? "selected" : '') + ' >' +  y + "年</option>";
+  for (let y = maxYear; y >= minYear; y--) {
+    options += `<option value="${y}" ${y === currentYear ? "selected" : ""}>${y}年</option>`;
   }
-  return text;
+  return options;
 }
 
-function convertToGengo( year: number ){
-    // 1月1日時点のDateオブジェクトを作成
-    const d = new Date(year, 0, 1);
+function convertToGengo(year: number) {
+  // 1月1日時点のDateオブジェクトを作成
+  // 明治以降の元号の変わり目（7月30日など）を考慮する場合は、
+  // 特定の日付（例: 12月31日）で判定するのが安全ですが、
+  // ここではシンプルにその年の代表的な元号を返します。
+  const d = new Date(year, 11, 31); // その年の年末で判定
 
-    // 和暦（japaneseカレンダー）を指定してフォーマット
-    const formatter = new Intl.DateTimeFormat('ja-JP-u-ca-japanese', {
-        era: 'long',
-        year: 'numeric'
-    });
+  const formatter = new Intl.DateTimeFormat('ja-JP-u-ca-japanese', {
+    era: 'long',
+    year: 'numeric'
+  });
 
-    return formatter.format(d); // 例: "令和6年"
+  return formatter.format(d);
 }
 
-function select_onchange(){
+function updateResult() {
   const yearSelect = document.getElementById("yearSelect") as HTMLSelectElement;
+  const resultArea = document.getElementById("resultArea");
+  
+  if (!yearSelect || !resultArea) return;
 
-  const y = Number( yearSelect.value );
-
-  const resultArea = document.getElementById("result_area");
-  if( resultArea === undefined || resultArea === null ) return;
-  resultArea.innerHTML = convertToGengo( y );
+  const year = Number(yearSelect.value);
+  resultArea.innerText = convertToGengo(year);
 }
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
-<div class="flexbox1">
-  <select id="yearSelect">
-    ${CreateYearsOptionsTexts()}
-  </select>
-</div>
-<div id="result_area"></div>
+  <div id="center">
+    <h1>年号変換</h1>
+    <div class="converter-card">
+      <div class="input-group">
+        <label for="yearSelect">西暦を選択:</label>
+        <select id="yearSelect" class="counter">
+          ${createYearOptions()}
+        </select>
+      </div>
+      <div class="result-display">
+        <p>和暦</p>
+        <div id="resultArea" class="gengo-result"></div>
+      </div>
+    </div>
+  </div>
 `;
 
-document.getElementById("yearSelect")?.addEventListener( "change", select_onchange );
-select_onchange();
+document.getElementById("yearSelect")?.addEventListener("change", updateResult);
+updateResult();
