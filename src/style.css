@@ -296,7 +296,58 @@ code {
   }
 }
 
-.flexbox1{
+.converter-card {
+  background: var(--bg);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+  width: 100%;
+  max-width: 400px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.input-group label {
+  font-weight: 500;
+}
+
+#yearSelect {
+  font-size: 24px;
+  padding: 8px 16px;
+  width: 100%;
+  cursor: pointer;
+  text-align: center;
+}
+
+.result-display {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  align-items: center;
+}
+
+.result-display p {
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  opacity: 0.7;
+}
+
+.gengo-result {
+  font-size: 48px;
+  font-weight: 700;
+  color: var(--accent);
+  min-height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
